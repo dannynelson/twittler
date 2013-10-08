@@ -39,22 +39,22 @@ var randomMessage = function(){
 
 // generate random tweets on a random schedule
 var generateRandomTweet = function(){
-  var tweet = {};
-  tweet.user = randomElement(users);
-  tweet.message = randomMessage();
-  tweet.created_at = new Date();
-  addTweet(tweet);
+  var tweet = {}; // creates an object to pass into addTweet
+  tweet.user = randomElement(users); //chooses random user
+  tweet.message = randomMessage(); //creates random message
+  tweet.created_at = new Date(); // sets it to current date/time
+  addTweet(tweet); // pushes tweet to "user" and "home"
 };
 
-for(var i = 0; i < 10; i++){
+for(var i = 0; i < 10; i++){ //generates 10 random tweets to start the program (does not display)
   generateRandomTweet();
 }
 
-var scheduleNextTweet = function(){
+var scheduleNextTweet = function(){ //generates tweet, and randomly generates ongoing tweets
   generateRandomTweet();
   setTimeout(scheduleNextTweet, Math.random() * 1500);
 };
-scheduleNextTweet();
+scheduleNextTweet(); 
 
 // utility function for letting students add "write a tweet" functionality
 // (note: not used by the rest of this file.)
