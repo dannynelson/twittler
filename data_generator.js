@@ -44,6 +44,7 @@ var generateRandomTweet = function(){
   tweet.message = randomMessage(); //creates random message
   tweet.created_at = new Date(); // sets it to current date/time
   addTweet(tweet); // pushes tweet to "user" and "home"
+  console.log(tweet);
 };
 
 for(var i = 0; i < 10; i++){ //generates 10 random tweets to start the program (does not display)
