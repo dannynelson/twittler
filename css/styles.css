@@ -16,7 +16,7 @@ body {
   background-color: #fff;
   border: 1px solid #C2C2C2;
   border-radius: 6px;
-  padding: 5px 15px;
+  padding: 5px 0px;
 }
 
 .box-left {
@@ -28,10 +28,18 @@ body {
 }
 
 .main {
-  background-color:rgba(211,232,242,0.5);
+  background-color: rgba(211,232,242,0.5);
 }
 
-h4 {
-  padding-bottom: 15px;
-  border-bottom: 1px solid #C2C2C2;
+.list, h4 {
+  border-bottom: 1px solid #DEDEDE;
+}
+
+.sidebar-header {
+  padding: 15px;
+}
+
+h4, h5, .list {
+  margin: 0px;
+  padding: 10px;
 }

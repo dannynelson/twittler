@@ -11,24 +11,23 @@ $(document).ready(function(){
   var displayAllTweets = function() {
     $stream.empty();
     var index = streams.home.length - 1;
-    while(index >= 0){
+    while (index >= 0) {
       var tweet = streams.home[index];
-      var $tweet = $('<div class="tweet"></div>');
+      var $tweet = $('<div class="stream"></div>');
       $tweet.html(
-        "<div>" + 
+        '<div class="list">' + 
           //link to user page, with username variable
           "<a href=\"user.html?username=" + tweet.user + "\">" +
             tweet.user +
           "</a>" +
-        "</div>" +
-        "<div>" + tweet.message + "</div>" +
-        "<div>" + tweet.created_at + "</div>" +
-        "<br>"
+          "<div>" + tweet.message + "</div>" +
+          "<div>" + tweet.created_at + "</div>" +
+        "</div>"
       );
       $tweet.appendTo($stream);
       index -= 1;
     }
-    setInterval(displayAllTweets, 1000); //doesn't allow me to click on it while this is running
+    displayAllTweets, 1000; //doesn't allow me to click on it while this is running
   }
 
   displayAllTweets();
