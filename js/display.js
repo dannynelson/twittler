@@ -1,22 +1,9 @@
-
-if (!sessionStorage.visitor) {
-  var visitor = prompt("Please enter your name:");
-  sessionStorage.visitor = visitor;
-} else {
-  var visitor = sessionStorage.visitor;
-}
-
-streams.users[visitor] = [];
-
-$(document).ready(function(){
-  // $variable is convention to ditinguish jquery objects stored in vars
+$(document).ready(function(){  
   
-  var $stream = $('.stream');
   var hashtags = [];
-  $stream.html('');
-  $('.miniatureProfile').html(users.profilePic)
-  $('.username').text(visitor);
+  var visitor; 
 
+  //-- FUNCTIONS --
 
   var searchForHashtags = function(message) {
     words = message.split(' ');
@@ -30,55 +17,59 @@ $(document).ready(function(){
     })
     return words.join(' ');
   }
-
-  $('.compose').on('click', function() {
-    var message = prompt("What's happening?");
-    writeTweet(message);
-  })
-
   var displayAllHashtags = function() {
     var hashtagsHTML = '<div><strong>Trends</div></strong>';
     _(hashtags).each(function(hashtag) {
       hashtagsHTML += '<div><a href="#">' + hashtag + '</a></div>';
     })
     $('.hashtags').empty().html(hashtagsHTML);
-    setInterval(displayAllHashtags, 5000);
+    setTimeout(displayAllHashtags, 5000);
   }
-
-  //display tweet stream
-  var displayAllTweets = function() {
+  var displayAllTweets = function(tweetsArray) {
+    var $stream = $('.stream');
     $stream.empty();
-    var index = streams.home.length - 1; //last index
+    var index = tweetsArray.length - 1; //last index
     var count = 0;
     while (count < 10 && index >= 0) {
-      var tweet = streams.home[index];
-      var $tweet = $('<div class="stream"></div>');
-      $tweet.html(
+      var tweet = tweetsArray[index];
+      $stream.append(
         '<div class="list">' + 
-          //link to user page, with username variable
           '<div class="smallProfile">' + users.profilePic + '</div>' +
           '<div class="tweet">' +
+            //link to user page, with username variable
             '<a href="user.html?username="' + tweet.user + '"><strong>' +
               tweet.user +
-            "</strong></a>" +
-            "<div>" + searchForHashtags(tweet.message) + "</div>" +
+            '</strong></a>' +
+            '<div>' + searchForHashtags(tweet.message) + '</div>' +
             '<div class="timestamp">' + tweet.created_at + '</div>' +
           '</div>' +
-
-        "</div>"
+        '</div>'
       );
-      $tweet.appendTo($stream);
       count++;
       index--;
     }
-    setTimeout(displayAllTweets, 3000);
+    setTimeout(function() {displayAllTweets(tweetsArray)}, 1000);
   }
 
-  displayAllTweets();
+  //define user variables
+  if (!sessionStorage.visitor) {
+    var visitor = prompt("Please enter your name:");
+    sessionStorage.visitor = visitor;
+  } else {
+    var visitor = sessionStorage.visitor;
+  }
+  streams.users[visitor] = [];
+
+  //click handlers
+  $('.compose').on('click', function() {
+    var message = prompt("What's happening?");
+    writeTweet(message);
+  })
+
+  //build page elements
+  $('.miniatureProfile').html(users.profilePic)
+  $('.username').text(visitor);
+  displayAllTweets(streams.home);
   displayAllHashtags();
-
-  //parse tweet for hashtags
-  //TODO: set hashtag link
-
 
 });

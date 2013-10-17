@@ -1,8 +1,6 @@
 $(document).ready(function(){
-  // $variable is convention to ditinguish jquery objects stored in vars
-  var $body = $('body');
-    //to retrieve URL variable
-  function getUrlVars() {
+    
+  var getUrlVars = function() {
     var vars = {};
     var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
         vars[key] = value;
@@ -12,9 +10,7 @@ $(document).ready(function(){
 
   var username = getUrlVars()["username"];
   $('#tweet-title').html("<b>" + username + " Tweets </b>");
-
   var $stream = $('.stream');
-  $stream.html('');
 
   //how to get username when clicked?
   var displayUserTweets =  function() {

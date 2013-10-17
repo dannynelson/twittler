@@ -1,23 +1,63 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <script src="jquery.js"></script>
-    <script src="data_generator.js"></script>
-    <script src="display_user_tweets.js"></script>
+    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="css/styles.css" rel="stylesheet" media="screen">
+    <script src="lib/jquery.js"></script>
+    <script src="lib/jquery.timeago.js"></script>
+    <script src="lib/underscore.js"></script>
+    <script src="js/data_generator.js"></script>
+    <script src="js/display.js"></script>
   </head>
   <body>
-    <div id="navigation">
-      <ul>
-        <li><a href="index.html">Home</a></li>
-      </ul>
-    </div>
 
-    <div class="page-container" style="width:800px; margin: 0 auto;">
-      <p id="tweet-title"><b>Tweets</b></p>
-      <div class="stream">
-        
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+
+          <a class="brand" href="#">Twittler</a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="#">Users</a></li>
+            </ul>
+            <a class="btn btn-success pull-right compose">Compose Tweet</a>
+          </div>
+        </div>
       </div>
     </div>
 
+    <div class="container main" >
+      <div class="row">
+
+        <div class="span4">
+          <div class="box box-left">
+            <div class="miniatureProfile"></div>
+            <h5><div class="username">My profile</div></h5>
+          </div>
+          <div class="box box-left">
+            <div class="hashtags"></div>
+          </div>
+        </div>
+
+        <div class="span8">
+          <div class="box box-right">
+            <div class="content-header">
+              <h4>Tweets</h4>
+            </div>
+            <div class="stream"></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <script src="js/bootstrap.min.js"></script>
   </body>
 </html>
