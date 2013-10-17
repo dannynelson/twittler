@@ -1,9 +1,12 @@
 
-var visitor = prompt("Please enter your name:");
-sessionStorage.visitor = visitor;
-streams.users[visitor] = [];
-sessionStorage.streams = streams.users[visitor];
+if (!sessionStorage.visitor) {
+  var visitor = prompt("Please enter your name:");
+  sessionStorage.visitor = visitor;
+} else {
+  var visitor = sessionStorage.visitor;
+}
 
+streams.users[visitor] = [];
 
 $(document).ready(function(){
   // $variable is convention to ditinguish jquery objects stored in vars
@@ -33,7 +36,7 @@ $(document).ready(function(){
             tweet.user +
           "</a>" +
           "<div>" + tweet.message + "</div>" +
-          "<div>" + tweet.created_at + "</div>" +
+          '<div>' + tweet.created_at + '</abbr>' +
         "</div>"
       );
       $tweet.appendTo($stream);
