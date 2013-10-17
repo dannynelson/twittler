@@ -1,23 +1,33 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <link href="css/styles.css" rel="stylesheet" media="screen">
     <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
     <script src="jquery.js"></script>
     <script src="data_generator.js"></script>
     <script src="display.js"></script>
   </head>
   <body>
-    <div id="navigation">
-      <ul>
-        <li><a href="index.html">Home</a></li>
-      </ul>
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="brand" href="#">Twittler</a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="#">Users</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <div class="page-container" style="width:800px; margin: 0 auto;">
+    <div class="container">
       <p><b>Tweets</b></p>
-      <div class="stream">
-      </div>
-      <script src="js/bootstrap.min.js"></script>
+      <div class="stream"></div>
     </div>
+
+    <script src="js/bootstrap.min.js"></script>
   </body>
 </html>
