@@ -12,6 +12,7 @@ streams.users.sharksforcheap = [];
 streams.users.mracus = [];
 streams.users.douglascalhoun = [];
 window.users = Object.keys(streams.users);
+users.profilePic = '<img class="profile" src="img/blank-profile.png">'
 
 // utility function for adding tweets to our data structures
 var addTweet = function(newTweet){

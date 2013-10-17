@@ -42,7 +42,7 @@ $(document).ready(function(){
     setInterval(displayAllHashtags, 5000);
   }
 
-  //display all
+  //display tweet stream
   var displayAllTweets = function() {
     $stream.empty();
     var index = streams.home.length - 1;
@@ -50,13 +50,18 @@ $(document).ready(function(){
       var tweet = streams.home[index];
       var $tweet = $('<div class="stream"></div>');
       $tweet.html(
-        '<div class="list">' + 
+        '<div class="list row">' + 
           //link to user page, with username variable
-          '<a href="user.html?username="' + tweet.user + '"><strong>' +
-            tweet.user +
-          "</strong></a>" +
-          "<div>" + searchForHashtags(tweet.message) + "</div>" +
-          '<div class="timestamp">' + tweet.created_at + '</div>' +
+          
+          '<div class="profile">' + users.profilePic + '</div>' +
+          '<div class="tweet">' +
+            '<a href="user.html?username="' + tweet.user + '"><strong>' +
+              tweet.user +
+            "</strong></a>" +
+            "<div>" + searchForHashtags(tweet.message) + "</div>" +
+            '<div class="timestamp">' + tweet.created_at + '</div>' +
+          '</div>' +
+
         "</div>"
       );
       $tweet.appendTo($stream);

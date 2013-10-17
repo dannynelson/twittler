@@ -34,7 +34,7 @@ body {
   margin-left: 0px;
 }
 
-/* elements in stream underlined */
+/* elements in stream underlined, displayed side-by-side */
 .list, h4 {
   border-bottom: 1px solid #DEDEDE;
 }
@@ -42,6 +42,14 @@ body {
 h4, h5, .list, .hashtags {
   margin: 0px;
   padding: 10px;
+}
+
+.profile, .profile{
+  float: left;
+}
+.profile {
+  margin: 3px 8px 0px 0px;
+  width: 50px;
 }
 
 .timestamp {
