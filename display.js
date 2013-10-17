@@ -17,7 +17,8 @@ $(document).ready(function(){
   $('.miniatureProfile').html(users.profilePic)
   $('.username').text(visitor);
 
-
+  //parse tweet for hashtags
+  //TODO: set hashtag link
   var searchForHashtags = function(message) {
     words = message.split(' ');
     words = _(words).map(function(word) {
@@ -50,12 +51,13 @@ $(document).ready(function(){
     $stream.empty();
     var index = streams.home.length - 1; //last index
     var count = 0;
-    while (count < 10 && index >= 0) {
+    while (count <= 10 || index >= 0) {
       var tweet = streams.home[index];
       var $tweet = $('<div class="stream"></div>');
       $tweet.html(
         '<div class="list">' + 
           //link to user page, with username variable
+          
           '<div class="smallProfile">' + users.profilePic + '</div>' +
           '<div class="tweet">' +
             '<a href="user.html?username="' + tweet.user + '"><strong>' +
@@ -71,14 +73,10 @@ $(document).ready(function(){
       count++;
       index--;
     }
-    setTimeout(displayAllTweets, 3000);
+    setInterval(displayAllTweets, 3000); //doesn't allow me to click on it while this is running
   }
 
   displayAllTweets();
   displayAllHashtags();
-
-  //parse tweet for hashtags
-  //TODO: set hashtag link
-
 
 });
