@@ -1,3 +1,9 @@
 body {
   padding-top: 60px;
+  /*The ../ is necessary */
+  background-image: url('../img/bg.png');
+  background-position: left 40px;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-color: #C0DEED;
 }
