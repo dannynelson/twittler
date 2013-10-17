@@ -44,12 +44,22 @@ h4, h5, .list, .hashtags {
   padding: 10px;
 }
 
-.profile, .profile{
+.smallProfile {
   float: left;
 }
-.profile {
+.smallProfile {
   margin: 3px 8px 0px 0px;
   width: 50px;
+}
+
+.miniatureProfile {
+  width: 30px;
+  float: left;
+  margin: 5px;
+}
+
+.largeProfile {
+  width: 100px;
 }
 
 .timestamp {

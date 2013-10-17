@@ -14,6 +14,9 @@ $(document).ready(function(){
   var $stream = $('.stream');
   var hashtags = [];
   $stream.html('');
+  $('.miniatureProfile').html(users.profilePic)
+  $('.username').text(visitor);
+
 
   var searchForHashtags = function(message) {
     words = message.split(' ');
@@ -50,10 +53,10 @@ $(document).ready(function(){
       var tweet = streams.home[index];
       var $tweet = $('<div class="stream"></div>');
       $tweet.html(
-        '<div class="list row">' + 
+        '<div class="list">' + 
           //link to user page, with username variable
           
-          '<div class="profile">' + users.profilePic + '</div>' +
+          '<div class="smallProfile">' + users.profilePic + '</div>' +
           '<div class="tweet">' +
             '<a href="user.html?username="' + tweet.user + '"><strong>' +
               tweet.user +
