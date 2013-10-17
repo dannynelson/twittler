@@ -1,4 +1,4 @@
-$(document).ready(function(){  
+// $(document).ready(function(){  
   
   var hashtags = [];
   var visitor; 
@@ -37,7 +37,7 @@ $(document).ready(function(){
           '<div class="smallProfile">' + users.profilePic + '</div>' +
           '<div class="tweet">' +
             //link to user page, with username variable
-            '<a href="user.html?username="' + tweet.user + '"><strong>' +
+            '<a href="user.html?username=' + tweet.user + '""><strong>' +
               tweet.user +
             '</strong></a>' +
             '<div>' + searchForHashtags(tweet.message) + '</div>' +
@@ -48,7 +48,14 @@ $(document).ready(function(){
       count++;
       index--;
     }
-    setTimeout(function() {displayAllTweets(tweetsArray)}, 1000);
+    setTimeout(function(){displayAllTweets(tweetsArray)}, 1000);
+  }
+  var getUrlVars = function() {
+    var vars = {};
+    var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+        vars[key] = value;
+    });
+    return vars;
   }
 
   //define user variables
@@ -60,16 +67,9 @@ $(document).ready(function(){
   }
   streams.users[visitor] = [];
 
-  //click handlers
-  $('.compose').on('click', function() {
-    var message = prompt("What's happening?");
-    writeTweet(message);
-  })
 
-  //build page elements
-  $('.miniatureProfile').html(users.profilePic)
-  $('.username').text(visitor);
-  displayAllTweets(streams.home);
-  displayAllHashtags();
 
-});
+
+
+
+// });

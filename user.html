@@ -8,6 +8,23 @@
     <script src="lib/underscore.js"></script>
     <script src="js/data_generator.js"></script>
     <script src="js/display.js"></script>
+    <script>  
+      $(document).ready(function() {
+        var username = getUrlVars()["username"]; //unique
+
+        //click handlers
+        $('.compose').on('click', function() {
+          var message = prompt("What's happening?");
+          writeTweet(message);
+        })
+        $('.miniatureProfile').html(users.profilePic)
+        $('.username').text(visitor);
+
+        displayAllTweets(streams.users[username]);
+        displayAllHashtags(); //unique
+
+      })
+    </script>
   </head>
   <body>
 
@@ -47,6 +64,11 @@
         </div>
 
         <div class="span8">
+          <!-- user information -->
+          <div class="box box-right">
+            
+          </div>
+
           <div class="box box-right">
             <div class="content-header">
               <h4>Tweets</h4>

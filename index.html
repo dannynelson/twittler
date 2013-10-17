@@ -8,6 +8,21 @@
     <script src="lib/underscore.js"></script>
     <script src="js/data_generator.js"></script>
     <script src="js/display.js"></script>
+    <script>  
+    $(document).ready(function() {
+      //click handlers
+      $('.compose').on('click', function() {
+        var message = prompt("What's happening?");
+        writeTweet(message);
+      })
+      $('.miniatureProfile').html(users.profilePic)
+      $('.username').text(visitor);
+      displayAllTweets(streams.home); //unique
+      displayAllHashtags();
+
+    })
+
+    </script>
   </head>
   <body>
 
@@ -59,5 +74,6 @@
     </div>
 
     <script src="js/bootstrap.min.js"></script>
+
   </body>
 </html>
