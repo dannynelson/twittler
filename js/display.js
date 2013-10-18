@@ -48,7 +48,7 @@
       count++;
       index--;
     }
-    setTimeout(function(){displayAllTweets(tweetsArray)}, 1000);
+    setTimeout(function(){displayAllTweets(tweetsArray)}, 3000);
   }
   var getUrlVars = function() {
     var vars = {};
