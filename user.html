@@ -20,12 +20,12 @@
         $('.miniatureProfile, .mediumProfile').html(users.profilePic)
         $('.username').text("@" + username);
 
-        displayAllTweets(streams.home); //unique
+        displayAllTweets(streams.users[username]); //unique
         displayAllHashtags();
         setInterval(function() {
-          displayAllTweets(streams.home); //unique
+          displayAllTweets(streams.users[username]); //unique
           displayAllHashtags();
-        }, 1000);
+        }, 3000);
 
       })
     </script>

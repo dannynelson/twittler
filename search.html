@@ -9,60 +9,64 @@
     <script src="js/data_generator.js"></script>
     <script src="js/display.js"></script>
     <script>  
-    $(document).ready(function() {
-      //click handlers
-      $('.compose').on('click', function() {
-        var message = prompt("What's happening?");
-        writeTweet(message);
+      $(document).ready(function() {
+        var hashtag = getUrlVars()["hashtag"]; //unique
+
+        //click handlers
+        $('.compose').on('click', function() {
+          var message = prompt("What's happening?");
+          writeTweet(message);
+        })
+
+        $('.tweet-info').text("Results for " + hashtag);
+        
+        displayAllTweets(searchFor(hashtag));
+        setInterval(function() {
+          displayAllTweets(searchFor(hashtag));
+        }, 3000);
+        displayAllHashtags(); //unique
+
       })
-      $('.miniatureProfile').html(users.profilePic)
-      $('.username').text(visitor);
-      
-      displayAllTweets(streams.home); //unique
-      displayAllHashtags();
-      setInterval(function() {
-        displayAllTweets(streams.home); //unique
-        displayAllHashtags();
-      }, 3000);
-    })
     </script>
   </head>
   <body>
-
+    <!-- Navbar -->
     <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
-          <!-- Brand -->
           <a class="brand" href="index.html">Twittler</a>
           <div class="nav-collapse collapse">
-            <!-- Menu Links -->
             <ul class="nav">
               <li><a href="index.html">Home</a></li>
             </ul>
-            <!-- Compose -->
             <a class="btn btn-success pull-right compose">Compose Tweet</a>
           </div>
         </div>
       </div>
     </div>
 
+    <!-- Main area -->
     <div class="container main" >
       <div class="row">
 
+        <!-- Left Column -->
         <div class="span4">
-          <div class="box box-left">
-            <div class="miniatureProfile"></div>
-            <h5><div class="username">My profile</div></h5>
-          </div>
+          <!--  -->
           <div class="box box-left">
             <div class="hashtags"></div>
           </div>
         </div>
 
+        <!-- Right Column -->
         <div class="span8">
+          <!-- tweet information -->
+          <div class="box box-right">
+            <h4 class="tweet-info"></h4>
+          </div>
+          <!-- Tweet stream -->
           <div class="box box-right">
             <div class="content-header">
-              <h4 class="underlined">Tweets</h4>
+              <h4>Tweets</h4>
             </div>
             <div class="stream"></div>
           </div>
@@ -72,6 +76,5 @@
     </div>
 
     <script src="js/bootstrap.min.js"></script>
-
   </body>
 </html>
