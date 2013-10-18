@@ -17,8 +17,8 @@
           var message = prompt("What's happening?");
           writeTweet(message);
         })
-        $('.miniatureProfile').html(users.profilePic)
-        $('.username').text(visitor);
+        $('.miniatureProfile, .mediumProfile').html(users.profilePic)
+        $('.username').text("@" + username);
 
         displayAllTweets(streams.users[username]);
         displayAllHashtags(); //unique
@@ -27,7 +27,7 @@
     </script>
   </head>
   <body>
-
+    <!-- Navbar -->
     <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
@@ -38,7 +38,7 @@
             <span class="icon-bar"></span>
           </button>
 
-          <a class="brand" href="#">Twittler</a>
+          <a class="brand" href="index.html">Twittler</a>
           <div class="nav-collapse collapse">
             <ul class="nav">
               <li><a href="index.html">Home</a></li>
@@ -50,25 +50,27 @@
       </div>
     </div>
 
+    <!-- Main area -->
     <div class="container main" >
       <div class="row">
-
+        <!-- Left Column -->
         <div class="span4">
-          <div class="box box-left">
-            <div class="miniatureProfile"></div>
-            <h5><div class="username">My profile</div></h5>
-          </div>
+          <!--  -->
           <div class="box box-left">
             <div class="hashtags"></div>
           </div>
         </div>
 
+        <!-- Right Column -->
         <div class="span8">
           <!-- user information -->
-          <div class="box box-right">
-            
+          <div class="box box-right user-info">
+            <div class="inner-overlay">
+              <div class="mediumProfile"></div>
+              <h3><div class="username text-center white"></div></h3>
+            </div>
           </div>
-
+          <!-- Tweet stream -->
           <div class="box box-right">
             <div class="content-header">
               <h4>Tweets</h4>

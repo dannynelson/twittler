@@ -58,10 +58,32 @@ h4, h5, .list, .hashtags {
   margin: 5px;
 }
 
+.mediumProfile {
+  width: 100px;
+  margin: 0 auto;
+  padding-top: 20px;
+}
+
 .largeProfile {
   width: 100px;
 }
 
 .timestamp {
   color: #BFBFBF;
+}
+
+.white {
+  color: white;
+}
+
+/*User profile picture background*/
+.user-info {
+  height: 200px;
+  background-image: url('https://abs.twimg.com/a/1381994476/t1/img/grey_header_web.jpg');
+  background-position: center bottom;
+}
+
+.inner-overlay {
+  background: linear-gradient(to bottom,rgba(0,0,0,0) 0,rgba(0,0,0,0.55) 100%);
+  height: 190px;
 }
