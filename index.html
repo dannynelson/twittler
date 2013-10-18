@@ -17,11 +17,14 @@
       })
       $('.miniatureProfile').html(users.profilePic)
       $('.username').text(visitor);
+      
       displayAllTweets(streams.home); //unique
       displayAllHashtags();
-
+      setInterval(function() {
+        displayAllTweets(streams.home); //unique
+        displayAllHashtags();
+      }, 1000);
     })
-
     </script>
   </head>
   <body>
@@ -56,7 +59,7 @@
         <div class="span8">
           <div class="box box-right">
             <div class="content-header">
-              <h4>Tweets</h4>
+              <h4 class="underlined">Tweets</h4>
             </div>
             <div class="stream"></div>
           </div>

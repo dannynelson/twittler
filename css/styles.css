@@ -35,7 +35,8 @@ body {
 }
 
 /* elements in stream underlined, displayed side-by-side */
-.list, h4 {
+
+.underlined {
   border-bottom: 1px solid #DEDEDE;
 }
 
